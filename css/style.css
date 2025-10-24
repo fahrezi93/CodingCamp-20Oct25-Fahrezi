@@ -73,14 +73,16 @@ a[style*="position:fixed"][style*="bottom"] {
     top: 0;
     left: 0;
     right: 0;
+    background: transparent;
+    box-shadow: none;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
 }
 
 .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     box-shadow: var(--shadow-md);
 }
 
@@ -97,12 +99,22 @@ a[style*="position:fixed"][style*="bottom"] {
     gap: 12px;
     font-weight: 700;
     font-size: 24px;
-    color: var(--dark);
+    color: var(--white);
     text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar.scrolled .logo {
+    color: var(--dark);
 }
 
 .logo-text {
     font-family: 'Space Grotesk', sans-serif;
+    color: var(--white);
+    transition: color 0.3s ease;
+}
+
+.navbar.scrolled .logo-text {
     color: #667eea;
 }
 
@@ -114,12 +126,17 @@ a[style*="position:fixed"][style*="bottom"] {
 }
 
 .nav-link {
-    color: var(--gray);
+    position: relative;
+    color: var(--white);
     text-decoration: none;
     font-weight: 500;
     font-size: 15px;
+    padding: 8px 0;
     transition: color 0.3s ease;
-    position: relative;
+}
+
+.navbar.scrolled .nav-link {
+    color: var(--dark);
 }
 
 .nav-link::after {
@@ -129,12 +146,21 @@ a[style*="position:fixed"][style*="bottom"] {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--bg-gradient);
-    transition: width 0.3s ease;
+    background: var(--white);
+    transition: width 0.3s ease, background 0.3s ease;
+}
+
+.navbar.scrolled .nav-link::after {
+    background: #667eea;
 }
 
 .nav-link:hover,
 .nav-link.active {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar.scrolled .nav-link:hover,
+.navbar.scrolled .nav-link.active {
     color: var(--primary);
 }
 
@@ -144,9 +170,9 @@ a[style*="position:fixed"][style*="bottom"] {
 }
 
 .btn-change-name {
-    background: rgba(102, 126, 234, 0.1);
-    border: 1px solid rgba(102, 126, 234, 0.3);
-    color: var(--primary);
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--white);
     padding: 8px 12px;
     border-radius: 8px;
     cursor: pointer;
@@ -156,10 +182,22 @@ a[style*="position:fixed"][style*="bottom"] {
     justify-content: center;
 }
 
+.navbar.scrolled .btn-change-name {
+    background: rgba(102, 126, 234, 0.1);
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    color: var(--primary);
+}
+
 .btn-change-name:hover {
+    background: var(--white);
+    color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+}
+
+.navbar.scrolled .btn-change-name:hover {
     background: var(--primary);
     color: var(--white);
-    transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
 }
 
@@ -186,13 +224,21 @@ a[style*="position:fixed"][style*="bottom"] {
 .mobile-menu-toggle span {
     width: 26px;
     height: 3px;
-    background: var(--dark);
+    background: var(--white);
     border-radius: 2px;
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     position: relative;
 }
 
+.navbar.scrolled .mobile-menu-toggle span {
+    background: var(--dark);
+}
+
 .mobile-menu-toggle:hover span {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.navbar.scrolled .mobile-menu-toggle:hover span {
     background: var(--primary);
 }
 

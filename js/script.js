@@ -62,7 +62,7 @@ function submitName() {
 function updateHeroTitle(userName) {
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
-        heroTitle.innerHTML = `Halo ${userName}, <span class="gradient-text">Selamat Datang di Website</span>`;
+        heroTitle.innerHTML = `Halo ${userName}, <span class="gradient-text">Selamat Datang di TechNova</span>`;
     }
 }
 
